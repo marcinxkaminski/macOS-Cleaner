@@ -38,4 +38,4 @@ You need always to specify your username in order to properly navigate to user's
 
 
 ## Run 🏃🏼‍♀️🏃🏼‍♂️
-  ``python3 clean.py``
+  ``python3 clean.py`` or ``sudo python3 clean.py`` (be careful with it!)
