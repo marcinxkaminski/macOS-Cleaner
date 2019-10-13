@@ -1,11 +1,11 @@
-from os import listdir, path as osp
+from os import listdir, path as osp, chmod, remove
 from shutil import rmtree
 
 USERNAME = 'mkaminski5'
 
 LIBRARIES_PATHS = ['/Library', '/Users/{}/Library'.format(USERNAME)]
 
-APPS_TO_REMOVE = ['to-delete']
+APPS_TO_REMOVE = ['to-remove']
 
 
 def ishidden(name: str) -> bool:
@@ -25,7 +25,12 @@ def paths_from_dir_gen(base_path: str):
 
 def deleted(path: str) -> bool:
     if input('Delete {} ? (y/n) '.format(path)) == 'y':
-        rmtree(path)
+        chmod(path=path, mode=0o7777)
+        try:
+            rmtree(path=path)
+        except OSError:
+            remove(path=path)
+
         return True
     else:
         return False
@@ -49,7 +54,7 @@ def clean_dir(base_path: str) -> bool:
             else:
                 clean_dir(path)
         except OSError:
-            print('Not permitted:', path)
+            continue
 
 
 def main():
