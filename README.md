@@ -14,13 +14,13 @@ You need always to specify your username in order to properly navigate to user's
 
 
 ## Install 💻
-  1. Clone project
-    ```bash
+  1. Clone project:
+    ```
     git clone https://github.com/marcinxkaminski/macOS-Cleaner.git
     ```
 
-  2. Go to project
-    ```bash
+  2. Go to project:
+    ```
     cd macOS-Cleaner
     ```
   3. You MUST set configuration variables!
